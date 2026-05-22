@@ -35,7 +35,10 @@ public class AlertGenerator {
      * @param patient the patient data to evaluate for alert conditions
      */
     public void evaluateData(Patient patient) {
-        // Implementation goes here
+
+        if (patient == null) {
+            return;
+        }
     }
 
     /**
@@ -47,6 +50,9 @@ public class AlertGenerator {
      * @param alert the alert object containing details about the alert condition
      */
     private void triggerAlert(Alert alert) {
-        // Implementation might involve logging the alert or notifying staff
+
+        System.out.println("Patient: " + alert.getPatientId());
+        System.out.println("Condition: " + alert.getCondition());
+        System.out.println("Timestamp: " + alert.getTimestamp());
     }
 }

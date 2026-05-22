@@ -1,0 +1,9 @@
+Code coverage focused primarily on DataStorage and Patient record retrieval functionality.
+
+Implemented tests verify:
+- Adding and retrieving patient data
+- Retrieving records for non-existing patients
+- Single record retrieval
+- Time filtering behavior
+
+Coverage for alert generation and simulator output modules remains limited because these components depend on external generation and communication mechanisms (file output, TCP, WebSocket, simulator scheduling) and were not fully unit tested in this implementation.

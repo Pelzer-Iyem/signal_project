@@ -6,11 +6,26 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executors;
 
+/**
+ * Outputs generated patient data through a TCP socket connection.
+ *
+ * <p>This class starts a TCP server on the specified port and sends
+ * generated patient data to a connected client in text format.
+ */
 public class TcpOutputStrategy implements OutputStrategy {
 
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;
+
+    /**
+     * Creates a TCP output strategy and starts a TCP server.
+     *
+     * <p>The server listens for a client connection on the specified port.
+     * Once connected, generated patient data can be streamed to the client.
+     *
+     * @param port the port number used for the TCP server
+     */
 
     public TcpOutputStrategy(int port) {
         try {
@@ -31,6 +46,15 @@ public class TcpOutputStrategy implements OutputStrategy {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Sends generated patient data to the connected TCP client.
+     *
+     * @param patientId the unique identifier of the patient
+     * @param timestamp the timestamp when the data was generated
+     * @param label the type or category of generated data
+     * @param data the generated patient data value
+     */
 
     @Override
     public void output(int patientId, long timestamp, String label, String data) {
